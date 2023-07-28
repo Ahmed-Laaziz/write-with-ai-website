@@ -48,7 +48,7 @@ function BaseLayout({ breadcrumb, title, children }) {
           relative
         />
       </MKBox>
-      <Container sx={{ mt: 6 }}>
+      <Container sx={{ mt: 2 }}>
         <Grid container item xs={12} flexDirection="column" justifyContent="center" mx="auto">
           <MKBox width={{ xs: "100%", md: "50%", lg: "25%" }} mb={3}>
             <Breadcrumbs routes={breadcrumb} />

@@ -15,13 +15,13 @@ Coded by www.creative-tim.com
 
 // Sections components
 import BaseLayout from "layouts/sections/components/BaseLayout";
-import View from "layouts/sections/components/View";
+//import View from "layouts/sections/components/View";
 
 // ProgressBars page components
 import ProgressSimple from "layouts/sections/elements/progress-bars/components/ProgressSimple";
 
 // ProgressBars page components code
-import progressSimpleCode from "layouts/sections/elements/progress-bars/components/ProgressSimple/code";
+//import progressSimpleCode from "layouts/sections/elements/progress-bars/components/ProgressSimple/code";
 
 function ProgressBars() {
   return (
@@ -32,9 +32,9 @@ function ProgressBars() {
         { label: "Progress Bars" },
       ]}
     >
-      <View title="Progress bar simple" code={progressSimpleCode}>
+      {/* <View title="Progress bar simple" code={progressSimpleCode}> */}
         <ProgressSimple />
-      </View>
+      {/* </View> */}
     </BaseLayout>
   );
 }
