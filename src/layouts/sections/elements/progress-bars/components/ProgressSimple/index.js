@@ -5,12 +5,73 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+
+import Grid from "@mui/material/Grid";
+import MKButton from 'components/MKButton';
 
 const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+
+const computer_science_fields = [
+  "Artificial Intelligence (AI)",
+  "Machine Learning",
+  "Data Science",
+  "Natural Language Processing (NLP)",
+  "Computer Vision",
+  "Robotics",
+  "Data Mining",
+  "Deep Learning",
+  "Neural Networks",
+  "Computer Graphics",
+  "Human-Computer Interaction (HCI)",
+  "Game Development",
+  "Virtual Reality (VR)",
+  "Augmented Reality (AR)",
+  "Cloud Computing",
+  "Big Data",
+  "Internet of Things (IoT)",
+  "Blockchain Technology",
+  "Cryptography",
+  "Cybersecurity",
+  "Network Security",
+  "Software Engineering",
+  "Web Development",
+  "Mobile App Development",
+  "Database Management",
+  "Operating Systems",
+  "Distributed Systems",
+  "Parallel Computing",
+  "Computer Networks",
+  "Wireless Networks",
+  "Internet Technologies",
+  "Web Design",
+  "Data Analytics",
+  "Quantum Computing",
+  "Bioinformatics",
+  "Health Informatics",
+  "Geographic Information Systems (GIS)",
+  "Information Retrieval",
+  "Computational Biology",
+  "Computational Linguistics",
+  "Computer Architecture",
+  "Embedded Systems",
+  "Compilers",
+  "Algorithms",
+  "Theory of Computation",
+  "Formal Methods",
+  "Numerical Analysis",
+  "Computer Aided Design (CAD)",
+  "Bioinformatics",
+  "Computational Physics",
+  "Computational Chemistry",
+];
+
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
+  const [campaignSettings, setCampaignSettings] = React.useState('');
 
   const isStepOptional = (step) => {
     return step === 1;
@@ -54,9 +115,13 @@ export default function HorizontalLinearStepper() {
     setActiveStep(0);
   };
 
+  const handleCampaignSettingsChange = (event) => {
+    setCampaignSettings(event.target.value);
+  };
+
   return (
-    <Box sx={{ width: '100%' , backgroundColor: 'white'}} >
-      <Stepper activeStep={activeStep} >
+    <Box sx={{ width: '80%' , margin: 'auto', paddingTop: '2rem',}}>
+      <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
@@ -75,6 +140,32 @@ export default function HorizontalLinearStepper() {
           );
         })}
       </Stepper>
+      <Grid>
+        &nbsp;
+      </Grid>
+      {activeStep === 0 && (
+        <Box sx={{ mt: 2 ,width: '60%', marginLeft: '4%'}}>
+          <Typography variant="h6" gutterBottom>
+        Computer Science Fields
+      </Typography>
+          <Autocomplete
+            options={computer_science_fields}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Choose your field"
+                variant="outlined"
+                value={campaignSettings}
+                onChange={handleCampaignSettingsChange}
+                
+              />
+            )}
+          />
+          <Grid>
+        &nbsp;
+      </Grid>
+        </Box>
+      )}
       {activeStep === steps.length ? (
         <React.Fragment>
           <Typography sx={{ mt: 2, mb: 1 }}>
@@ -104,9 +195,13 @@ export default function HorizontalLinearStepper() {
               </Button>
             )}
 
-            <Button onClick={handleNext}>
+            <MKButton 
+            type="button"
+            variant="gradient"
+            color="light"
+            onClick={handleNext}>
               {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-            </Button>
+            </MKButton>
           </Box>
         </React.Fragment>
       )}
