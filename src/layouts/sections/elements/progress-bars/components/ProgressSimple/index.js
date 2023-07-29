@@ -82,7 +82,6 @@ const computer_science_fields = [
   "Formal Methods",
   "Numerical Analysis",
   "Computer Aided Design (CAD)",
-  "Bioinformatics",
   "Computational Physics",
   "Computational Chemistry",
 ];
@@ -100,7 +99,8 @@ const research_paper_types = [
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
-  const [campaignSettings, setCampaignSettings] = React.useState('');
+  const [field, setField] = React.useState('');
+  const [type, setType] = React.useState('');
   const [haveTitle, setHaveTitle] = React.useState(null);
   const [titleInput, setTitleInput] = React.useState('');
   const [yesColor, setYesColor] = React.useState('light');
@@ -129,7 +129,7 @@ export default function HorizontalLinearStepper() {
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    setHaveTitle(null);
+    //setHaveTitle(null);
   };
 
   const handleSkip = () => {
@@ -147,11 +147,14 @@ export default function HorizontalLinearStepper() {
 
   const handleReset = () => {
     setActiveStep(0);
-    setHaveTitle(null);
+    //setHaveTitle(null);
   };
 
-  const handleCampaignSettingsChange = (event) => {
-    setCampaignSettings(event.target.value);
+  const handleFieldChange = (event, value) => {
+    setField(value);
+  };
+  const handleTypeChange = (event, value) => {
+    setType(value);
   };
 
   const handleYesOption = () => {
@@ -218,14 +221,16 @@ export default function HorizontalLinearStepper() {
           </Typography>
           <Autocomplete
             options={computer_science_fields}
+            getOptionLabel={(option) => option}
+            value={field}
+            onChange={handleFieldChange}
             renderInput={(params) => (
               <TextField
                 {...params}
                 label="Choose your field"
                 variant="outlined"
                 fullWidth={true}
-                value={campaignSettings}
-                onChange={handleCampaignSettingsChange}
+                
               />
             )}
           />
@@ -236,7 +241,7 @@ export default function HorizontalLinearStepper() {
         <Box sx={{ mt: 2, width: '100%'}}>
           <Grid container justifyContent="center">
           <Typography variant="h6" gutterBottom>
-            Do you have already a title about {campaignSettings} for your research paper?
+            Do you have already a title about {field} for your research paper?
           </Typography>
           </Grid>
           <Grid>&nbsp;</Grid>
@@ -325,15 +330,15 @@ export default function HorizontalLinearStepper() {
           {/* <Stack direction="row" alignItems="flex-end" spacing={1}> */}
           <Autocomplete
             options={research_paper_types}
+            getOptionLabel={(option) => option}
+            value={type}
+            onChange={handleTypeChange}
             renderInput={(params) => (
               <TextField
                 {...params}
                 label="Choose option"
                 variant="outlined"
                 fullWidth={true}
-               
-               // value={campaignSettings}
-               // onChange={handleCampaignSettingsChange}
               />
             )}
           />
@@ -391,15 +396,28 @@ export default function HorizontalLinearStepper() {
       )}
       {activeStep === steps.length ? (
         <React.Fragment>
-          <Grid container item xs={12} lg={4} py={1} mx="auto">
-          <MKInput fullWidth success value="Field you choosed" disabled/>
+        {/* <Grid container item xs={12} lg={6} py={1} mx="auto">  */}
+          <Stack direction="row" alignItems="flex-end" spacing={2}>
+          <MKInput sx={{width:"50%"}} label= "Field" success value={field} disabled/>
+          <MKInput sx={{width:"50%"}} label= "Type"success value={type} disabled/>
+          </Stack>
+        {/* </Grid> */}
+        <Grid>
+          &nbsp;
         </Grid>
-        <Grid container item xs={12} lg={4} py={1} mx="auto">
-          <MKInput  fullWidth success value="title you choosed" disabled/>
+
+        {/* <Grid container item xs={12} lg={4} py={1} mx="auto"> */}
+        <Stack direction="row" alignItems="flex-end" spacing={6}>
+          
+          <MKInput fullWidth label="Title" success value={titleInput} disabled/>
+        </Stack>
+        {/* </Grid> */}
+        <Grid>
+          &nbsp;
         </Grid>
-        <Grid container item xs={12} lg={4} py={1} mx="auto">
-          <MKInput fullWidth success value="Type you choosed" disabled/>
-        </Grid>
+
+
+
         <Stack direction="row" alignItems="flex-end" spacing={3}>
             <Box sx={{ flex: '1 1 auto' }} />
             <MKButton 
@@ -408,7 +426,7 @@ export default function HorizontalLinearStepper() {
             color="secondary" 
             onClick={handleReset}
             >
-              <RestartAltIcon/>&nbsp;&nbsp;Reset
+              <RestartAltIcon/>&nbsp;&nbsp;Modify
             </MKButton>
             <MKButton 
             type = "button" 
