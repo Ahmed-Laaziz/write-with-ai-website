@@ -1,4 +1,5 @@
 import * as React from 'react';
+import axios from "axios";
 import { useState } from "react";
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -30,8 +31,9 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import SaveIcon from '@mui/icons-material/Save';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import CircularProgress from "@mui/material/CircularProgress";
 
-const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+const steps = ['Choose a field', 'Insert a title', 'Choose a type'];
 
 const computer_science_fields = [
   "Artificial Intelligence (AI)",
@@ -107,6 +109,10 @@ export default function HorizontalLinearStepper() {
   const [noColor, setNoColor] = React.useState('light');
   const [show, setShow] = useState(false);
   const toggleModal = () => setShow(!show);
+  //const [generatedTitle, setGeneratedTitle] = useState(""); // State to store the generated abstract
+  // State to indicate whether the backend request is in progress
+  const [isLoading, setIsLoading] = useState(false);
+  
 
   const isStepOptional = (step) => {
     return step === 1;
@@ -187,6 +193,31 @@ export default function HorizontalLinearStepper() {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
 
+  const fetchTitle = async () => {
+    try {
+      // Show the spinner while the backend request is in progress
+      setIsLoading(true);
+      const url = "http://localhost:8008/generate_title"; // URL for the backend API
+      const requestData = {
+        field: field, // Send the user input as a parameter in the request body
+      };
+
+      // Make a POST request to your backend API
+      const response = await axios.post(url, requestData);
+
+      // Assuming the response contains the generated abstract text as a string
+      const generatedTitleText = response.data;
+
+      // Update the generated abstract in the state
+      //setTit(generatedTitleText);
+      setTitleInput(generatedTitleText);
+    } catch (error) {
+      console.error("Error fetching abstract:", error);
+    } finally {
+      // Hide the spinner after the backend request is completed
+      setIsLoading(false);
+    }
+  };
 
   return (
     <Box sx={{ width: '100%', margin: 'auto', paddingTop: '2rem' }}>
@@ -303,6 +334,8 @@ export default function HorizontalLinearStepper() {
                     variant="gradient"
                     color='light'
                     size="large"
+                    onClick={fetchTitle} // Fetch the abstract when the button is clicked
+                    disabled={isLoading}
                     >
                       Generate
           </MKButton>
@@ -310,6 +343,13 @@ export default function HorizontalLinearStepper() {
             </Box>
           )}
           <Grid>&nbsp;</Grid>
+          {/* Conditional rendering for the spinner */}
+      {isLoading && (
+        <Grid container item xs={12} my={2} justifyContent="center">
+          <CircularProgress color="inherit" />
+        </Grid>
+      )}
+
         </Box>
       )}
 
@@ -446,7 +486,7 @@ export default function HorizontalLinearStepper() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
+          
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <MKButton
               type="button"

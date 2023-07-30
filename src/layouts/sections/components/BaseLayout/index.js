@@ -63,6 +63,7 @@ function BaseLayout({ breadcrumb, title, children }) {
         <CenteredFooter />
       </MKBox>
     </MKBox>
+    
   );
 }
 

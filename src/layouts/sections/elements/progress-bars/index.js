@@ -19,21 +19,27 @@ import BaseLayout from "layouts/sections/components/BaseLayout";
 
 // ProgressBars page components
 import ProgressSimple from "layouts/sections/elements/progress-bars/components/ProgressSimple";
-
+import MKBox from "components/MKBox";
+import Grid from "@mui/material/Grid";
 // ProgressBars page components code
 //import progressSimpleCode from "layouts/sections/elements/progress-bars/components/ProgressSimple/code";
 
 function ProgressBars() {
   return (
     <BaseLayout
-      title="Progress Bars"
+      title="Write your research paper with AI"
       breadcrumb={[
         { label: "Page Sections", route: "/sections/elements/progress-bars" },
-        { label: "Progress Bars" },
+        { label: "Write your research paper with AI" },
       ]}
     >
+      <Grid>&nbsp;</Grid>
+
+
       {/* <View title="Progress bar simple" code={progressSimpleCode}> */}
+      <MKBox color="black" borderRadius ="2%" shadow="10%" coloredShadow="success" sx={{ p: 2, border: '1px grey' }}>
         <ProgressSimple />
+      </MKBox>
       {/* </View> */}
     </BaseLayout>
   );
