@@ -32,9 +32,9 @@ function PageHeaders() {
         { label: "Page Headers" },
       ]}
     >
-      <View title="Header 1" code={headerOneCode} height="40rem">
+      {/* <View title="Header 1" code={headerOneCode} height="40rem"> */}
         <HeaderOne />
-      </View>
+      {/* </View> */}
     </BaseLayout>
   );
 }

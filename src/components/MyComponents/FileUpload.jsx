@@ -33,7 +33,7 @@ export default function FileUploadPage() {
       setFile(null);
     }
   return (
-    <div>
+    
       <MKBox px={1} width="100%" height="100vh" mx="auto" position="relative" zIndex={2}>
         <FileUploader
           handleChange={handleChange}
@@ -41,7 +41,7 @@ export default function FileUploadPage() {
           types={fileTypes}
           hoverTitle="Drop Here"
         >
-          <MKBox sx={{ p: 2, border: "1px dashed lightBlue" }} position="relative" width="500px">
+          <MKBox sx={{ p: 2, border: "1px dashed lightBlue" }} position="relative">
           <Grid container spacing={1} justifyContent="center" alignItems="center" height="100%" >
             <img  src={UploadIcon} width={"20%"} height={"20%"}/>
             </Grid>
@@ -70,14 +70,12 @@ export default function FileUploadPage() {
         </FileUploader>
         <p>{file ? 
         <>
-        <Grid>
-          &nbsp;
-        </Grid>
         <MKBox 
         sx={{
           backgroundColor: '#E2EEFF',
           borderRadius: '10px'
         }}
+        marginTop="2%"
         >
         <Stack direction="row" spacing={2}>
         
@@ -99,14 +97,14 @@ export default function FileUploadPage() {
         <MKBox display="flex"
                 justifyContent="center"
                 alignItems="center"
-                paddingTop="2%">
-        <MKButton  variant ="gradient" type="button" color="light" size="large" >Submit</MKButton>
+                paddingTop="2%"
+                >
+        <MKButton fullWidth={true} variant ="gradient" type="button" color="light" size="large" width="100%">Submit</MKButton>
         </MKBox>
         </>
         
           : <div></div>
         }</p>
       </MKBox>
-    </div>
   );
 }

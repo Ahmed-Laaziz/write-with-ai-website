@@ -35,7 +35,7 @@ import DesignBlocks from "pages/Presentation/sections/DesignBlocks";
 import Pages from "pages/Presentation/sections/Pages";
 import Testimonials from "pages/Presentation/sections/Testimonials";
 import Download from "pages/Presentation/sections/Download";
-
+import DrawIcon from '@mui/icons-material/Draw';
 // Presentation page components
 import BuiltByDevelopers from "pages/Presentation/components/BuiltByDevelopers";
 
@@ -110,9 +110,7 @@ function Presentation() {
         }}
       >
         <Counters />
-        <Information />
-        <DesignBlocks />
-        <Pages />
+
         <Container sx={{ mt: 6 }}>
           <BuiltByDevelopers />
         </Container>
@@ -160,6 +158,12 @@ function Presentation() {
             </Grid>
           </Grid>
         </Container>
+
+        <Pages />
+        <Information />
+        {/* <DesignBlocks /> */}
+        
+        
         <Testimonials />
         <Download />
         <MKBox pt={18} pb={6}>

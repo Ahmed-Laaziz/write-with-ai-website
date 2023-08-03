@@ -24,6 +24,10 @@ import MKBox from "components/MKBox";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import FileUploadPage from "components/MyComponents/FileUpload";
+import Divider from '@mui/material/Divider';
+import Box from '@mui/material/Box';
+import Dots from "assets/images/pdf-logos/dots.svg"
+import AiFile from "assets/images/pdf-logos/ai-file.svg"
 
 // Images
 import bgImage from "assets/images/bg-coworking.jpeg";
@@ -31,130 +35,25 @@ import bgImage from "assets/images/bg-coworking.jpeg";
 function HeaderOne() {
   return (
     <MKBox component="header" position="relative" height="100%">
-      {/* <MKBox component="nav" position="absolute" top="0.5rem" width="100%">
+      <MKBox>
         <Container>
-          <Grid container flexDirection="row" alignItems="center">
-            <MKTypography
-              component={Link}
-              href="#"
-              variant="button"
-              color="white"
-              fontWeight="regular"
-              py={0.8125}
-              mr={2}
-            >
-              Material Design
-            </MKTypography>
-            <MKButton
-              variant="outlined"
-              color="white"
-              sx={{ display: { xs: "block", lg: "none" }, ml: "auto" }}
-            >
-              <MKBox component="i" color="white" className="fas fa-bars" />
-            </MKButton>
-            <MKBox
-              component="ul"
-              display={{ xs: "none", lg: "flex" }}
-              p={0}
-              my={0}
-              mx="auto"
-              sx={{ listStyle: "none" }}
-            >
-              <MKBox component="li">
-                <MKTypography
-                  component={Link}
-                  href="#"
-                  variant="button"
-                  color="white"
-                  fontWeight="regular"
-                  p={1}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Home
-                </MKTypography>
+        <Stack
+          direction="row"
+          divider={<Divider orientation="vertical" fullWidth={true} height="100%" flexItem sx={{ bgcolor: "secondary.dark" }}></Divider>}
+          spacing={2}
+        >
+
+              <MKBox sx={{ p: 2, border: "1px dashed lightBlue" }} width="100%">
+              <center><img src={AiFile} alt="Ai File" width="20%" height="20%"/>
+                <p>Write you research paper with our assistant for free!</p></center>
               </MKBox>
-              <MKBox component="li">
-                <MKTypography
-                  component={Link}
-                  href="#"
-                  variant="button"
-                  color="white"
-                  fontWeight="regular"
-                  p={1}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  About Us
-                </MKTypography>
-              </MKBox>
-              <MKBox component="li">
-                <MKTypography
-                  component={Link}
-                  href="#"
-                  variant="button"
-                  color="white"
-                  fontWeight="regular"
-                  p={1}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Contact Us
-                </MKTypography>
-              </MKBox>
-            </MKBox>
-            <MKBox
-              component="ul"
-              display={{ xs: "none", lg: "flex" }}
-              p={0}
-              m={0}
-              sx={{ listStyle: "none" }}
-            >
-              <MKBox component="li">
-                <MKTypography
-                  component={Link}
-                  href="#"
-                  variant="button"
-                  p={1}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <MKBox component="i" color="white" className="fab fa-twitter" />
-                </MKTypography>
-              </MKBox>
-              <MKBox component="li">
-                <MKTypography
-                  component={Link}
-                  href="#"
-                  variant="button"
-                  p={1}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <MKBox component="i" color="white" className="fab fa-facebook" />
-                </MKTypography>
-              </MKBox>
-              <MKBox component="li">
-                <MKTypography
-                  component={Link}
-                  href="#"
-                  variant="button"
-                  p={1}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <MKBox component="i" color="white" className="fab fa-instagram" />
-                </MKTypography>
-              </MKBox>
-            </MKBox>
-          </Grid>
-        </Container>
-      </MKBox> */}
-      <MKBox
-        display="flex"
-        alignItems="center"
-        minHeight="100%"
-      >
-        <Container>
-          <Grid container item xs={12} md={7} lg={6} flexDirection="column" justifyContent="center">
-            <Stack direction="row" spacing={1} mt={3}>
-              <FileUploadPage/>
-            </Stack>
-          </Grid>
+
+             <MKBox width = "10%">
+              <img src = {Dots} width ="80%" height="60%"/>
+             </MKBox>
+
+              <FileUploadPage width="100%"/>
+        </Stack>
         </Container>
       </MKBox>
     </MKBox>

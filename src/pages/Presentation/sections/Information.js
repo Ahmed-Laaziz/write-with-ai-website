@@ -42,9 +42,9 @@ function Information() {
                 icon="touch_app"
                 title={
                   <>
-                    Feel the
+                    Write your research paper
                     <br />
-                    Material Kit
+                    with AI
                   </>
                 }
                 description="All the MUI components that you need in a development have been re-design with the new look."
@@ -56,7 +56,7 @@ function Information() {
                 action={{
                   type: "internal",
                   route: "/sections/page-sections/page-headers",
-                  label: "start with header",
+                  label: "start!",
                 }}
               />
             </RotatingCard>
