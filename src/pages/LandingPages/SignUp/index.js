@@ -26,7 +26,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import { styled } from '@mui/material/styles';
-// Material Kit 2 React example components
+
 //import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import SimpleFooter from "examples/Footers/SimpleFooter";
 import Stack from "@mui/material/Stack";
