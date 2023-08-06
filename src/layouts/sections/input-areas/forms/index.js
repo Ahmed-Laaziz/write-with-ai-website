@@ -19,23 +19,34 @@ import BaseLayout from "layouts/sections/components/BaseLayout";
 
 // Forms page components
 import FormSimple from "layouts/sections/input-areas/forms/components/FormSimple";
-
-// Forms page components code
+import MiniDrawer from "components/MyComponents/Drawers/MiniDrawer";
+import PermanentDrawerRight from "components/MyComponents/Drawers/PermanentDrawerRight";
+import Box from '@mui/material/Box';
+// Forms page components codeTemporaryDrawerTemporaryDrawer
 //import formSimpleCode from "layouts/sections/input-areas/forms/components/FormSimple/code";
 
 function Forms() {
   return (
-    <BaseLayout
+    <>
+      
+      <BaseLayout
       title="Forms"
       breadcrumb={[
         { label: "Page Sections", route: "/sections/input-areas/forms" },
         { label: "Forms" },
       ]}
     >
+      <MiniDrawer/>
       {/* <View title="Form Simple" code={formSimpleCode}> */}
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <FormSimple />
+        <PermanentDrawerRight/>
+      </Box>
       {/* </View> */}
-    </BaseLayout>
+      </BaseLayout>
+      
+      </>
+    
   );
 }
 

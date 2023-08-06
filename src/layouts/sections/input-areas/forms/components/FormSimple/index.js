@@ -85,14 +85,14 @@ function FormSimple() {
 
 
   return (
-    <MKBox component="section" py={6}>
+    <MKBox component="section" py={6} width="100%" paddingLeft="0px">
       <Container>
-        <Grid container item justifyContent="center" xs={10} lg={7} mx="auto" textAlign="center">
+        <Grid textAlign="center" marginRight={"450px"}>
           <MKTypography variant="h3" mb={1}>
             Write your research paper with our assistant editor
           </MKTypography>
         </Grid>
-        <Grid container item xs={12} lg={7} sx={{ mx: "auto" }}>
+        <Grid marginRight={"250px"}>
           <MKBox width="100%" component="form" method="post" autoComplete="off">
             <MKBox p={3}>
             <Grid spacing={7}>
