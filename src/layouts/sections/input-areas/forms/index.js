@@ -15,36 +15,33 @@ Coded by www.creative-tim.com
 
 // Sections components
 import BaseLayout from "layouts/sections/components/BaseLayout";
-//import View from "layouts/sections/components/View";
-
+// import View from "layouts/sections/components/View";
+import Grid from "@mui/material/Grid";
 // Forms page components
 import FormSimple from "layouts/sections/input-areas/forms/components/FormSimple";
 import MiniDrawer from "components/MyComponents/Drawers/MiniDrawer";
 import PermanentDrawerRight from "components/MyComponents/Drawers/PermanentDrawerRight";
 import Box from '@mui/material/Box';
+import CenteredFooter from "examples/Footers/CenteredFooter";
+import MKBox from "components/MKBox";
+
+
 // Forms page components codeTemporaryDrawerTemporaryDrawer
 //import formSimpleCode from "layouts/sections/input-areas/forms/components/FormSimple/code";
 
 function Forms() {
   return (
     <>
+  <box >
+    <p style={{marginBottom:"3%"}}>&nbsp;</p>
+  </box>
       
-      <BaseLayout
-      title="Forms"
-      breadcrumb={[
-        { label: "Page Sections", route: "/sections/input-areas/forms" },
-        { label: "Forms" },
-      ]}
-    >
       <MiniDrawer/>
       {/* <View title="Form Simple" code={formSimpleCode}> */}
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <FormSimple />
-        <PermanentDrawerRight/>
-      </Box>
-      {/* </View> */}
-      </BaseLayout>
-      
+      <MKBox width="70%" marginLeft="0px">
+        <CenteredFooter/>
+      </MKBox>
+      {/* </BaseLayout> */}
       </>
     
   );

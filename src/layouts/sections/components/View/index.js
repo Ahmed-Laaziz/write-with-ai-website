@@ -14,6 +14,8 @@ Coded by www.creative-tim.com
 */
 
 import { useState, useEffect } from "react";
+import React, {createContext} from "react";
+
 
 // prop-types is a library for type checking of props
 import PropTypes from "prop-types";
@@ -41,7 +43,9 @@ import MKTypography from "components/MKTypography";
 // Material Kit 2 React base styles
 import colors from "assets/theme/base/colors";
 
-function View({ children, code, title, height, ...rest }) {
+import DynamicPDFViewer from "components/MyComponents/Pdf/PdfViewer";
+
+function View({ abstractItem, introductionItem, bodyItem, conclusionItem, code, title, height,rp_id, ...rest }) {
   const { grey } = colors;
 
   const [activeTab, setActiveTab] = useState(0);
@@ -71,14 +75,57 @@ function View({ children, code, title, height, ...rest }) {
         }}
       >
         <Grid container spacing={2} justifyContent="space-between" py={1}>
-          <Grid item xs={12} lg={3}>
-            <MKTypography variant="body1" pt={0.5}>
-              {title}
-            </MKTypography>
-          </Grid>
-          <Grid item xs={12} lg={3}>
+          <Grid item xs={12} lg={12}>
             <AppBar position="static">
               <Tabs value={activeTab} onChange={handleTabType}>
+                <Tab
+                  icon={
+                    <MKBox
+                      component="i"
+                      color="dark"
+                      mr={1.25}
+                      sx={{ fontSize: ({ typography: { size } }) => size.sm }}
+                      className="fas fa-pen"
+                    />
+                  }
+                  label="Abstract"
+                />
+                <Tab
+                  icon={
+                    <MKBox
+                      component="i"
+                      color="dark"
+                      mr={1.25}
+                      sx={{ fontSize: ({ typography: { size } }) => size.sm }}
+                      className="far fa-bookmark"
+                    />
+                  }
+                  label="Introduction"
+                />
+                <Tab
+                  icon={
+                    <MKBox
+                      component="i"
+                      color="dark"
+                      mr={1.25}
+                      sx={{ fontSize: ({ typography: { size } }) => size.sm }}
+                      className="fas fa-book"
+                    />
+                  }
+                  label="Body"
+                />
+                <Tab
+                  icon={
+                    <MKBox
+                      component="i"
+                      color="dark"
+                      mr={1.25}
+                      sx={{ fontSize: ({ typography: { size } }) => size.sm }}
+                      className="	far fa-edit"
+                    />
+                  }
+                  label="Conclusion"
+                />
                 <Tab
                   icon={
                     <MKBox
@@ -91,24 +138,13 @@ function View({ children, code, title, height, ...rest }) {
                   }
                   label="Preview"
                 />
-                <Tab
-                  icon={
-                    <MKBox
-                      component="i"
-                      color="dark"
-                      mr={1.25}
-                      sx={{ fontSize: ({ typography: { size } }) => size.sm }}
-                      className="fas fa-code"
-                    />
-                  }
-                  label="Code"
-                />
               </Tabs>
             </AppBar>
           </Grid>
         </Grid>
       </MKBox>
-      <MKBox display={activeTab === 0 ? "block" : "none"}>
+
+      <MKBox display={activeTab === 0 ? "block" : "none"} p={4}>
         <MKBox width="100%" p={3}>
           <MKBox
             bgColor="grey-100"
@@ -116,13 +152,62 @@ function View({ children, code, title, height, ...rest }) {
             height={height}
             maxHeight="40rem"
             borderRadius="xl"
-            sx={{ overflowX: "hidden", overflowY: "scroll" }}
+            sx={{ overflowX: "hidden"}}
           >
-            {children}
+            {abstractItem}
           </MKBox>
         </MKBox>
       </MKBox>
-      <MKBox display={activeTab === 1 ? "block" : "none"} p={3}>
+
+
+      <MKBox display={activeTab === 1 ? "block" : "none"} p={4}>
+        <MKBox width="100%" p={3}>
+          <MKBox
+            bgColor="grey-100"
+            width="100%"
+            height={height}
+            maxHeight="40rem"
+            borderRadius="xl"
+            sx={{ overflowX: "hidden"}}
+          >
+            {introductionItem}
+          </MKBox>
+        </MKBox>
+      </MKBox>
+
+      <MKBox display={activeTab === 2 ? "block" : "none"} p={4}>
+        <MKBox width="100%" p={3}>
+          <MKBox
+            bgColor="grey-100"
+            width="100%"
+            height={height}
+            maxHeight="40rem"
+            borderRadius="xl"
+            sx={{ overflowX: "hidden"}}
+          >
+            {bodyItem}
+          </MKBox>
+        </MKBox>
+      </MKBox>
+
+
+      <MKBox display={activeTab === 3 ? "block" : "none"} p={4}>
+        <MKBox width="100%" p={3}>
+          <MKBox
+            bgColor="grey-100"
+            width="100%"
+            height={height}
+            maxHeight="40rem"
+            borderRadius="xl"
+            sx={{ overflowX: "hidden"}}
+          >
+            {conclusionItem}
+          </MKBox>
+        </MKBox>
+      </MKBox>
+
+
+      <MKBox display={activeTab === 4 ? "block" : "none"} p={3}>
         <MKBox
           bgColor="grey-100"
           position="relative"
@@ -130,7 +215,7 @@ function View({ children, code, title, height, ...rest }) {
           borderRadius="xl"
           sx={{ overflow: "hidden" }}
         >
-          <CopyToClipboard text={code}>
+          {/* <CopyToClipboard text={code}>
             <MKButton
               variant="gradient"
               color="dark"
@@ -170,9 +255,13 @@ function View({ children, code, title, height, ...rest }) {
             }}
           >
             {code}
-          </SyntaxHighlighter>
+          </SyntaxHighlighter> */}
+          <div className="App">
+      <DynamicPDFViewer rp_id={rp_id}/>
+    </div>
         </MKBox>
       </MKBox>
+      
     </MKBox>
   );
 }
@@ -184,14 +273,17 @@ View.defaultProps = {
 
 // Typechecking props for the View
 View.propTypes = {
-  children: PropTypes.node.isRequired,
+  abstractItem: PropTypes.node.isRequired,
+  introductionItem: PropTypes.node.isRequired,
+  bodyItem: PropTypes.node.isRequired,
+  conclusionItem: PropTypes.node.isRequired,
   code: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
   height: PropTypes.string,
+  rp_id: PropTypes.number.isRequired,
 };
 
 export default View;
-
 
 
 

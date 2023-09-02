@@ -26,22 +26,9 @@ import Grid from "@mui/material/Grid";
 
 function ProgressBars() {
   return (
-    <BaseLayout
-      title="Write your research paper with AI"
-      breadcrumb={[
-        { label: "Page Sections", route: "/sections/elements/progress-bars" },
-        { label: "Write your research paper with AI" },
-      ]}
-    >
-      <Grid>&nbsp;</Grid>
-
-
-      {/* <View title="Progress bar simple" code={progressSimpleCode}> */}
-      <MKBox color="black" borderRadius ="2%" shadow="10%" coloredShadow="success" sx={{ p: 2, border: '1px grey' }}>
+    
         <ProgressSimple />
-      </MKBox>
-      {/* </View> */}
-    </BaseLayout>
+      
   );
 }
 

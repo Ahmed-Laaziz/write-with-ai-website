@@ -1,0 +1,4 @@
+.text-abstract ::selection {
+    background-color: #309EAB;
+    color: white;
+  }

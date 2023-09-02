@@ -1,8 +1,8 @@
 // FormSimple.js
-import * as React from 'react';
+
 import { useState, useEffect } from "react";
 import axios from "axios";
-import './styles.css';
+import '../../input-areas/forms/components/FormSimple/styles.css';
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -22,7 +22,7 @@ import PropTypes from 'prop-types';
 import Divider from '@mui/material/Divider';
 import Slide from "@mui/material/Slide";
 import Modal from "@mui/material/Modal";
-import Translate from "../../../../../../components/MyComponents/Translator/Translate"
+import Translate from "../../../../components/MyComponents/Translator/Translate";
 // @mui icons
 import CloseIcon from "@mui/icons-material/Close";
 import Stack from "@mui/material/Stack";
@@ -30,16 +30,8 @@ import GTranslateIcon from '@mui/icons-material/GTranslate';
 import CircularProgress from "@mui/material/CircularProgress";
 import CustomizedDividers from "components/MyComponents/CustomizedDividers";
 
-import CardComponent from "components/MyComponents/Cards/Card";
-import { useLocation } from 'react-router-dom';
 import TextSelector from "text-selection-react";
-import { useParams } from 'react-router-dom';
-
-import Button from '@mui/material/Button';
-import Snackbar from '@mui/material/Snackbar';
-import IconButton from '@mui/material/IconButton';
-
-function FormSimple({nbrWordsValue, onNbrWordsValueChange,onTextSelect}) {
+function Conclusion({nbrWordsValue, onNbrWordsValueChange,onTextSelect}) {
   //text selection
   // const [color, setColor] = useState("yellow");
   const [show, setShow] = useState(false);
@@ -60,34 +52,6 @@ function FormSimple({nbrWordsValue, onNbrWordsValueChange,onTextSelect}) {
   const [abstractLanguageCode, setAbstractLanguageCode] = useState("en-US");
   const [showTextSelector, setShowTextSelector] = useState(false);
   const [textSelected, setTextSelected] = useState('');
-
-  const [open, setOpen] = React.useState(false);
-
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen(false);
-  };
-
-  const action = (
-    <React.Fragment>
-      {/* <Button color="secondary" size="small" onClick={handleClose}>
-        UNDO
-      </Button> */}
-      <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
-        onClick={handleClose}
-      >
-        <CloseIcon fontSize="small" />
-      </IconButton>
-    </React.Fragment>
-  );
-
-
   useEffect(() => {
     // You can set the language code here based on your requirements
     // For example, if you expect the generated abstract to be in English, you can set it to "en-US"
@@ -111,13 +75,11 @@ function FormSimple({nbrWordsValue, onNbrWordsValueChange,onTextSelect}) {
   const fetchAbstract = async () => {
     try {
       // Show the spinner while the backend request is in progress
-      console.log("abstract : " + abstractText)
       setIsLoading(true);
       const url = "http://localhost:8008/generate_abstract"; // URL for the backend API
       const requestData = {
         abstract_text: abstractText, // Send the user input as a parameter in the request body
         // words_to_generate: wordsNumber,
-        title: title,
         words_to_generate: nbrWordsValue,
       };
       console.log(nbrWordsValue);
@@ -155,79 +117,13 @@ function FormSimple({nbrWordsValue, onNbrWordsValueChange,onTextSelect}) {
     setShow(!show);
   };
 
-  //TITLE
-  const { articleId } = useParams(); // Assuming you're using articleId from the route parameter
-  const [title, setTitle] = useState(''); // State to store the fetched title
-  const [conclusion, setConclusion] = useState(''); // State to store the
-  const [bibliographie, setBibliographie] = useState(''); // State to store the
-  const [field, setField] = useState(''); // State to store the
-  const [student_id, setStudentID] = useState(null); // State to store the
-  const [description, setDescription] = useState("");
-  const [file_name, setFileName] = useState("");
-  const [introduction, setIntroduction] = useState("");
-  useEffect(() => {
-    // Fetch the title from the backend API
-    const fetchTitle = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:8086/ResearchPapers/getResearchPaperById/${articleId}` // Replace with your actual API endpoint
-        );
-        setTitle(response.data.title); // Update the state with the fetched title
-        setConclusion(response.data.conclusion); // Update the state with the fetched
-        setIntroduction(response.data.introduction); // Update the state with the fetched
-        setBibliographie(response.data.bibliographie); // Update the state
-        setFileName(response.data.fileName); // Update the state with the
-        setDescription(response.data.description); // Update the state with the
-        if (response.data.abstractSection != null){
-        setAbstractText(response.data.abstractSection);
-        }
-      } catch (error) {
-        console.error('Error fetching title:', error);
-      }
-    };
-
-    fetchTitle(); // Call the fetchTitle function when the component mounts
-  }, [articleId]); // Include articleId in the dependency array to fetch when it changes
-
-
-  //UPDATE ABSTRACT
-  const updateAbstractText = async () => {
-    try {
-      // Prepare the data for the PUT request
-      const requestData = {
-        abstractSection: abstractText,
-        title: title,
-        introduction: introduction,
-        conclusion: conclusion,
-        fileName: file_name,
-        bibliographie: bibliographie,
-        field:field,
-        description: description, // Update with the generated abstract text
-      };
-
-      // Make a PUT request to update the abstract text
-      const response = await axios.put(
-        `http://localhost:8086/ResearchPapers/${articleId}`,
-        requestData
-      );
-
-      // Assuming your backend returns the updated research paper object
-      const updatedResearchPaper = response.data;
-
-      // Update the abstract text in the state
-      setAbstractText(updatedResearchPaper.abstractSection);
-      setOpen(true);
-    } catch (error) {
-      console.error('Error updating abstract text:', error);
-    }
-  };
 
   return (
-    <MKBox component="section" py={0} >
-      <Container >
+    <MKBox component="section" py={0}>
+      <Container>
         <Grid textAlign="center">
-          <MKTypography variant="h4" color="red" fontWeight="bold" mb={0} style={{paddingLeft:"10%", paddingRight:"10%", color:"#1b4080", width:"100%"}}>
-           <i>Title : {title}</i> 
+          <MKTypography variant="h4" color="red" fontWeight="bold" mb={0} style={{paddingLeft:"10%", paddingRight:"10%", color:"#1b4080"}}>
+           <i>Title : Python as a powerful programming language for Data Science </i> 
           </MKTypography>
         </Grid>
         <Grid>
@@ -277,7 +173,7 @@ function FormSimple({nbrWordsValue, onNbrWordsValueChange,onTextSelect}) {
                   <MKInput
                   
                     variant="standard"
-                    label="Abstract"
+                    label="Conclusion"
                     multiline
                     fullWidth
                     rows={10}
@@ -344,13 +240,6 @@ function FormSimple({nbrWordsValue, onNbrWordsValueChange,onTextSelect}) {
                 <Grid>
                   &nbsp;
                 </Grid>
-                <Snackbar
-        open={open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        message="Saved Successfully"
-        action={action}
-      />
 
               </Grid>
               
@@ -377,7 +266,7 @@ function FormSimple({nbrWordsValue, onNbrWordsValueChange,onTextSelect}) {
                     type="button"
                     variant="gradient"
                     color="light"
-                    onClick={updateAbstractText} // Fetch the abstract when the button is clicked
+                    //onClick={fetchAbstract} // Fetch the abstract when the button is clicked
                   >
                     <SaveIcon/>
                   </MKButton>
@@ -395,15 +284,14 @@ function FormSimple({nbrWordsValue, onNbrWordsValueChange,onTextSelect}) {
             </MKBox>
           </MKBox>
         </Grid>
-        {/* <CardComponent/> */}
       </Container>
     </MKBox>
   );
 }
 
-FormSimple.propTypes = {
+Conclusion.propTypes = {
   nbrWordsValue: PropTypes.number.isRequired,
   onNbrWordsValueChange: PropTypes.func,
   onTextSelect: PropTypes.func.isRequired,
 };
-export default FormSimple;
+export default Conclusion;

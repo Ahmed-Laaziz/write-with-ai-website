@@ -48,7 +48,8 @@ import ContactUs from "layouts/pages/landing-pages/contact-us";
 import Author from "layouts/pages/landing-pages/author";
 import SignIn from "layouts/pages/authentication/sign-in";
 import SignUp from "layouts/pages/authentication/sign-up"
-
+import Home from "layouts/pages/articles/Home";
+import Translator from "layouts/pages/articles/Translator";
 // Sections
 import PageHeaders from "layouts/sections/page-sections/page-headers";
 import Features from "layouts/sections/page-sections/featuers";
@@ -68,7 +69,12 @@ import Dropdowns from "layouts/sections/elements/dropdowns";
 import ProgressBars from "layouts/sections/elements/progress-bars";
 import Toggles from "layouts/sections/elements/toggles";
 import Typography from "layouts/sections/elements/typography";
-
+import ChatComponent from "layouts/pages/articles/Chat";
+import Summarizer from "layouts/pages/articles/Summarizer";
+import Options from "layouts/pages/articles/Options";
+import Related from "layouts/pages/articles/Related";
+import { UploadFile } from "@mui/icons-material";
+import FileUpload from "components/MyComponents/FileUpload";
 const routes = [
   {
     name: "pages",
@@ -123,14 +129,39 @@ const routes = [
         dropdown: true,
         collapse: [
           {
-            name: "page headers",
-            route: "/sections/page-sections/page-headers",
-            component: <PageHeaders />,
+            name: "Home",
+            route: "/layouts/pages/articles/Home/:studentId",
+            component: <Home />,
           },
           {
-            name: "features",
-            route: "/sections/page-sections/features",
-            component: <Features />,
+            name: "Translator",
+            route: "/layouts/pages/articles/Translator/:studentId",
+            component: <Translator />,
+          },
+          {
+            name: "Summarizer",
+            route: "/layouts/pages/articles/Summarizer/:studentId",
+            component: <Summarizer />,
+          },
+          {
+            name: "Chat",
+            route: "/layouts/pages/articles/Chat/:studentId",
+            component: <ChatComponent />,
+          },
+          {
+            name: "Options",
+            route: "/layouts/pages/articles/Options/:studentId",
+            component: <Options />,
+          },
+          {
+            name: "Upload",
+            route: "/layouts/pages/articles/Upload/:studentId",
+            component: <FileUpload />,
+          },
+          {
+            name: "Related",
+            route: "/layouts/pages/articles/Related/:studentId",
+            component: <Related />,
           },
         ],
       },
@@ -168,7 +199,7 @@ const routes = [
           },
           {
             name: "forms",
-            route: "/sections/input-areas/forms",
+            route: "/sections/input-areas/forms/:articleId/:studentId",
             component: <Forms />,
           },
         ],
@@ -227,7 +258,7 @@ const routes = [
           },
           {
             name: "progress bars",
-            route: "/sections/elements/progress-bars",
+            route: "/sections/elements/progress-bars/:studentId",
             component: <ProgressBars />,
           },
           {

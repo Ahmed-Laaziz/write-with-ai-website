@@ -1,0 +1,41 @@
+/* styles.css */
+
+.custom-divider-container {
+    display: flex;
+    align-items: center;
+    margin: 4px 0; /* Adjust the margin as needed */
+  }
+  
+  .custom-divider {
+    flex-grow: 1; /* Make the Divider expand to fill available space */
+    background-color: #4b7280; /* Change to your desired color */
+    height: 400px; /* Adjust the height as needed */
+  }
+  
+  .or-text {
+    padding: 0 8px; /* Adjust the spacing around the text */
+    color: #21878f; /* Change to your desired text color */
+    font-weight: bold; /* Add font-weight or other styles as needed */
+  }
+
+  .content-css {
+    color: #000000;
+    font-family: "Times New Roman"
+  }
+  .authors {
+    color:#5c6a6e;
+    font-family: "Times New Roman"
+  }
+  
+  .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 70%;
+    margin-bottom: 3%;
+  }
+  
+  .center-form {
+    
+  }

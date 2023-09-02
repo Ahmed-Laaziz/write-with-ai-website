@@ -38,13 +38,14 @@ import Download from "pages/Presentation/sections/Download";
 import DrawIcon from '@mui/icons-material/Draw';
 // Presentation page components
 import BuiltByDevelopers from "pages/Presentation/components/BuiltByDevelopers";
-
+import MKButton from "components/MKButton";
 // Routes
 import routes from "routes";
 import footerRoutes from "footer.routes";
-
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 // Images
-import bgImage from "assets/images/bg-presentation.jpg";
+import bgImage from "assets/images/bg_page.jpg";
+import { Link } from "react-router-dom";
 
 function Presentation() {
   return (
@@ -60,7 +61,7 @@ function Presentation() {
         sticky
       />
       <MKBox
-        minHeight="75vh"
+        minHeight="115vh"
         width="100%"
         sx={{
           backgroundImage: `url(${bgImage})`,
@@ -83,7 +84,7 @@ function Presentation() {
                 },
               })}
             >
-              Material Kit 2 React{" "}
+              SmartDocs{" "}
             </MKTypography>
             <MKTypography
               variant="body1"
@@ -92,9 +93,25 @@ function Presentation() {
               px={{ xs: 6, lg: 12 }}
               mt={1}
             >
-              Free & Open Source Web UI Kit built over ReactJS &amp; MUI. Join over 1.6 million
-              developers around the world.
+              SmartDocs harnesses the power of artificial intelligence to simplify writing, enhance quality, 
+              and boost productivity.
             </MKTypography>
+            <Link to={{
+      pathname: "/pages/authentication/sign-in",
+    }}
+    style={{ color: 'black' , marginTop:"1%"}} // Set the desired text color here
+    >
+            <MKButton
+            type="button"
+            color="secondary"
+            variant="gradient"
+            sx={{
+              marginTop:"1%"
+            }}
+            >
+              <KeyboardDoubleArrowRightIcon/>&nbsp; Get Started
+            </MKButton>
+            </Link>
           </Grid>
         </Container>
       </MKBox>

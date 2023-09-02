@@ -1,52 +1,29 @@
-// import { useState } from "react";
-
-// react-router-dom components
-import { Link } from "react-router-dom";
-
-// @mui material components
+import React, { useState } from 'react';
 import Card from "@mui/material/Card";
-// import Switch from "@mui/material/Switch";
 import Grid from "@mui/material/Grid";
-// import MuiLink from "@mui/material/Link";
-
-import * as React from 'react';
-
-// Material Kit 2 React components
-import MKBox from "components/MKBox";
-import MKTypography from "components/MKTypography";
-import MKInput from "components/MKInput";
-// import InputLabel from '@mui/material/InputLabel';
-import MKButton from "components/MKButton";
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
+import MKBox from "components/MKBox";
+import MKTypography from "components/MKTypography";
+import MKInput from "components/MKInput";
+import MKButton from "components/MKButton";
 import { styled } from '@mui/material/styles';
-
-//import DefaultNavbar from "examples/Navbars/DefaultNavbar";
-import SimpleFooter from "examples/Footers/SimpleFooter";
-import Stack from "@mui/material/Stack";
-// Material Kit 2 React page layout routes
-//import routes from "routes";
-
-// Images
+import axios from 'axios'; // Import Axios library
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
-
+import Stack from "@mui/material/Stack";
+import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'; 
 function SignUpBasic() {
-//   const [rememberMe, setRememberMe] = useState(false);
-const [age, setAge] = React.useState('');
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
-//   const handleSetRememberMe = () => setRememberMe(!rememberMe);
+  const navigate = useNavigate();
 
-
-const BpIcon = styled('span')(({ theme }) => ({
+  const BpIcon = styled('span')(({ theme }) => ({
     borderRadius: '50%',
     width: 16,
     height: 16,
@@ -101,8 +78,68 @@ function BpRadio(props) {
     );
   }
 
+
+
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [academic_level, setacademic_level] = useState('');
+  const [school_name, setSchool] = useState('');
+  const [gender, setGender] = useState('female'); // Default gender value
+  const [password, setPassword] = useState(null);
+  const [birthday, setBirthday] = useState(null);
+  const handleChange = (event) => {
+    setacademic_level(event.target.value);
+  };
+  const handleChange1 = (event) => {
+    setSchool(event.target.value);
+  };
+
+  const handleGenderChange = (event) => {
+    setGender(event.target.value);
+  };
+
+ 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const userData = {
+      first_name,
+      last_name,
+      email,
+      academic_level,
+      gender,
+      password,
+      birthday,
+      school_name,
+    };
+    try {
+      // Check if the email exists in the database
+      const emailCheckResponse = await axios.get(`http://localhost:8086/Students/getStudentByEmail/${email}`);
+  
+      if (emailCheckResponse.data) {
+        // Email already exists in the database, display an alert message
+        alert('Email already exists in the database.');
+      } else {
+        // Email does not exist in the database, proceed to add the user
+        const response = await axios.post('http://localhost:8086/Students/addStudent', userData);
+  
+        // Handle a successful response from the server (e.g., show a success message)
+        console.log('Response from server:', response.data);
+        console.log(userData.academic_level);
+  
+        // Redirect the user to the sign-in page after successful registration
+        navigate('/pages/authentication/sign-in');
+      }
+    } catch (error) {
+      // Handle errors (e.g., display an error message to the user)
+      console.error('Error:', error.response.data);
+    }
+  };
+  
   return (
-    <>
+      
+
+      <>
       <MKBox
         position="absolute"
         top={0}
@@ -161,13 +198,23 @@ function BpRadio(props) {
                 <MKBox component="form" role="form">
 
                 <Stack direction="row" alignItems="flex-end" spacing={3}>
-                    <MKInput type="text" label="First Name" fullWidth required/>
-                    <MKInput type="text" label="Last Name" fullWidth required/> 
+                    <MKInput 
+                    type="text" label="First Name" fullWidth required
+                    value={first_name}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    />
+                    <MKInput type="text" label="Last Name" fullWidth required
+                    value={last_name}
+                    onChange={(e) => setLastName(e.target.value)}
+                    /> 
                 </Stack>
                 <Grid>
                     &nbsp;
                 </Grid>
-                <MKInput type="email" label="Email" fullWidth required/>
+                <MKInput type="email" label="Email" fullWidth required 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                />
                 <Grid>
                     &nbsp;
                 </Grid>
@@ -180,8 +227,8 @@ function BpRadio(props) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
-          label="Academic level"
+          value={academic_level}
+          label="Academic Level"
           onChange={handleChange}
           sx={{height:"40px"}}
           required
@@ -200,14 +247,14 @@ function BpRadio(props) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={school_name}
           label="University"
-          onChange={handleChange}
+          onChange={handleChange1}
           sx={{height:"40px"}}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={"ENSA"}>ENSA</MenuItem>
+          <MenuItem value={"ENSAM"}>ENSAM</MenuItem>
+          {/* <MenuItem value={30}></MenuItem> */}
         </Select>
       </FormControl>
                 </Stack>
@@ -220,7 +267,10 @@ function BpRadio(props) {
                 <Stack direction="row" alignItems="flex-end" spacing={3}>
                 <FormControl fullWidth>
                 <FormLabel sx={{fontSize:"0.7em"}}>Birthday</FormLabel>
-                    <MKInput type="date" fullWidth />
+                    <MKInput type="date" fullWidth 
+                    value={birthday ? birthday.toISOString().split("T")[0] : ""} // Convert to string in YYYY-MM-DD format
+                    onChange={(e) => setBirthday(new Date(e.target.value))} // Convert the input to a Date object
+                    />
                     </FormControl>
                     <FormControl fullWidth>
       <FormLabel id="demo-customized-radios" sx={{fontSize:"0.7em"}}>Gender</FormLabel>
@@ -229,6 +279,8 @@ function BpRadio(props) {
         defaultValue="female"
         aria-labelledby="demo-customized-radios"
         name="customized-radios"
+        value={gender}
+        onChange={handleGenderChange}
       >
         <FormControlLabel value="female" control={<BpRadio />} label="Female" />
         <FormControlLabel value="male" control={<BpRadio />} label="Male" />
@@ -242,12 +294,14 @@ function BpRadio(props) {
                 
                 
                 <Stack direction="row" alignItems="flex-end" spacing={3}>
-                    <MKInput type="password" label="Password" fullWidth />
-                    <MKInput type="password" label="Confirm Password" fullWidth /> 
+                    <MKInput type="password" label="Password" fullWidth value={password}
+                    onChange={(e) => setPassword(e.target.value)}/>
+                    <MKInput type="password" label="Confirm Password" fullWidth 
+                    onChange={(e) => setPassword(e.target.value)}/> 
                 </Stack>
 
                   <MKBox mt={4} mb={1}>
-                    <MKButton variant="gradient" color="info" fullWidth>
+                    <MKButton variant="gradient" color="info" fullWidth onClick={handleSubmit}>
                       sign up
                     </MKButton>
                   </MKBox>
@@ -280,3 +334,4 @@ function BpRadio(props) {
 }
 
 export default SignUpBasic;
+

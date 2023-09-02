@@ -25,7 +25,7 @@ ValueLabelComponent.propTypes = {
 
 const PrettoSlider = styled(Slider)({
   color: '#575863',
-  height: 1,
+  height: 0.1,
   '& .MuiSlider-track': {
     border: 'none',
   },
@@ -33,7 +33,7 @@ const PrettoSlider = styled(Slider)({
     height: 16,
     width: 16,
     backgroundColor: '#fff',
-    border: '2px solid black',
+    border: '1px solid black',
     '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
       boxShadow: 'inherit',
     },
@@ -71,7 +71,7 @@ export default function CustomizedSlider({label}) {
       <Stack direction="row" alignItems="flex-end" spacing={1}>
         <Grid xs = {5}>
         <Box marginTop={"3%"}>
-      <Typography gutterBottom fontSize={"0.8em"} >{label} </Typography>
+      <Typography gutterBottom fontSize={"0.8em"} ><strong>{label}</strong> </Typography>
       </Box>
       </Grid>
       <Grid xs = {7}>
