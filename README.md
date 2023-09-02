@@ -11,7 +11,6 @@
 
 SmartDocs is your all-in-one solution for research paper writing and more. Utilizing cutting-edge Natural Language Processing (NLP) technology, SmartDocs offers a range of powerful features to simplify the research process and boost your productivity.
 
-## Screenshots
 
 | Screenshot 1 | Screenshot 2 |
 | :---: | :---: |
