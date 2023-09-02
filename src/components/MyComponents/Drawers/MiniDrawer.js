@@ -635,34 +635,7 @@ useEffect(() => {
 </Modal>
 
 
-      <BaseLayout
-      // title="Write your article with AI"
-      breadcrumb={[
-        { label: "Page Sections", route: "/sections/input-areas/forms" },
-        { label: "Write article" },
-      ]}
-    >
-      <View 
-      title="Dropdown and Dropup"  
-      rp_id = {articleId}
-      code={dropdownAndDropupCode} 
-      abstractItem={<FormSimple nbrWordsValue={numberValue} onTextSelect={handleTextSelect}/>}
-      introductionItem={<Introduction nbrWordsValue={numberValue} onTextSelect={handleTextSelect}/>}
-      bodyItem={<Body nbrWordsValue={numberValue} onTextSelect={handleTextSelect}/>}
-      conclusionItem={<Conclusion nbrWordsValue={numberValue} onTextSelect={handleTextSelect}/>}
-      style={{width:"900px"}}
-      >
-      </View>
-        <PermanentDrawerRight 
-        onNumberWordsChange={handleNumberChange} 
-        highlightedText={highlightedText}
-        onHighlightButtonClick={handleHighlightButtonClick}
-        onHighlightSummaryButtonClick={handleHighlightSummaryButtonClick}
-        onHighlightParaButtonClick={handleHighlightParaButtonClick}
-        onHighlightRelatedButtonClick={handleHighlightRelatedButtonClick}
-        />
-        
-     </BaseLayout>
+      
       </Box>
     </Box>
   );
