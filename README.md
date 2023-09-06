@@ -58,23 +58,34 @@ Pour démarrer cette partie front-end( à noter il faut démarrer la partie back
 # Aperçu
 Acceuil  |  Champs à remplir pour récupérer des analyses céphalométriques
 :-------------:|:----------------:
-![Imgur](https://i.ibb.co/j9tqz1C/img14.png)  |  ![Imgur](https://i.ibb.co/Hz9K5XN/img15.png)
+![Imgur](https://i.ibb.co/LdQBFsw/Screenshot-2023-09-02-122544.png)  |  ![Imgur](https://i.ibb.co/VJYsz5d/Screenshot-2023-09-02-122712.png)
 
  Exemple d’une mauvaise image insérée par l’utilisateur |   Message d’erreur obtenu après la validation
 :-------------:|:----------------:
-![Imgur](https://i.ibb.co/xHSDmt7/img16.png)  |  ![Imgur](https://i.ibb.co/ZWrSvCC/img17.png)  
+![Imgur](https://i.ibb.co/TH5HMsQ/Screenshot-2023-09-02-122755.png)  |  ![Imgur](https://i.ibb.co/Wn1kxX0/Screenshot-2023-09-02-122909.png)  
 
  Exemple d’un remplissement des champs |    Les informations personnelles du patient sur la première page du PDF d'analyses
 :-------------:|:----------------:
-![Imgur](https://i.ibb.co/F4xVcXP/img18.png)  |  ![Imgur](https://i.ibb.co/3fr4fvs/img19.png)  
+![Imgur](https://i.ibb.co/WyNPMHz/Screenshot-2023-09-02-123057.png)  |  ![Imgur](https://i.ibb.co/cgB60pP/Screenshot-2023-09-02-123320.png)  
 
  Les analyses céphalométriques selon « Downs » |   Les analyses céphalométriques selon « Steiner »
 :-------------:|:----------------:
-![Imgur](https://i.ibb.co/KyXn3w9/img20.png)  |  ![Imgur](https://i.ibb.co/JQRt8TJ/img21.png)  
+![Imgur](https://i.ibb.co/TWtXWGz/Screenshot-2023-09-02-123416.png)  |  ![Imgur](https://i.ibb.co/kD4GhmZ/Screenshot-2023-09-02-123510.png)  
 
  Les analyses céphalométriques qui correspond au patient |   Les interprétations des valeurs des angles céphalométriques récupérées
 :-------------:|:----------------:
-![Imgur](https://i.ibb.co/9TsbYkZ/img22.png)  |  ![Imgur](https://i.ibb.co/25PW0Mq/img23.png)  
+![Imgur](https://i.ibb.co/Fm5D5kV/Screenshot-2023-09-02-123632.png)  |  ![Imgur](https://i.ibb.co/jZwLxgn/Screenshot-2023-09-02-123658.png)  
+
+
+ Les analyses céphalométriques qui correspond au patient |   Les interprétations des valeurs des angles céphalométriques récupérées
+:-------------:|:----------------:
+![Imgur](https://i.ibb.co/Bz2DGdc/Screenshot-2023-09-02-123826.png)  |  ![Imgur](https://i.ibb.co/NCgmSMF/Screenshot-2023-09-02-123845.png)  
+ Les analyses céphalométriques qui correspond au patient |   Les interprétations des valeurs des angles céphalométriques récupérées
+:-------------:|:----------------:
+![Imgur](https://i.ibb.co/BrLrphd/Screenshot-2023-09-02-124435.png)  |  ![Imgur](https://i.ibb.co/GHQy5N1/Screenshot-2023-09-02-124636.png)  
+ Les analyses céphalométriques qui correspond au patient |   Les interprétations des valeurs des angles céphalométriques récupérées
+:-------------:|:----------------:
+![Imgur](https://i.ibb.co/BGWSCwT/Screenshot-2023-09-02-124730.png)  |  ![Imgur](https://i.ibb.co/YdpdR6V/Screenshot-2023-09-02-125825.png)  
 
 - [Ahmed Laaziz] (mailto:laazizahmed72@gmail.com) - [LinkedIn]([your-linkedin-profile-link](https://www.linkedin.com/in/ahmed-laaziz-4b2168218/))
 
