@@ -8,57 +8,45 @@
 </div>
 
 # Contexte général du projet
-La radiographie céphalométrique est couramment utilisée comme outil standard dans
-le diagnostic orthodontique et la planification du traitement, ainsi que dans la planification de la chirurgie corrective et plastique. Le marquage des repères anatomiques du
-crâne et des tissus mous environnants dans les céphalogrammes latéraux est une partie
-essentielle du processus de diagnostic et de planification. Les repères céphalométriquessont 
-utilisés pour un certain nombre d’analyses orthodontiques (par exemple Schwarz,
-Steiner, Ricketts) où plusieurs mesures linéaires et angulaires sont calculées à partir de
-leurs positions. La précision avec laquelle les repères sont situés a un impact direct sur
-les résultats des analyses effectuées et les décisions de traitement qui en résultent
+Le contexte général de ce projet est centré sur la création d'un outil basé sur le traitement automatique du langage naturel (NLP) pour aider les chercheurs et les auteurs à rédiger des articles scientifiques de manière plus efficace et précise. L'objectif est de simplifier le processus de rédaction tout en garantissant la qualité et la cohérence des articles scientifiques. 
 
-# Django
+# FastAPI
 
-Django est un framework web Python open source qui est largement utilisé dans l'industrie pour plusieurs raisons :
+Le choix de FastAPI offre plusieurs avantages pour le développement d'applications Web, en particulier dans le contexte des API RESTful et des microservices. Voici quelques-uns des avantages clés de FastAPI :
 
-1. **Productivité** : Django favorise la productivité des développeurs grâce à son système de gestion des modèles de données, son ORM (Object-Relational Mapping) et son administration automatique de l'interface d'administration. Il permet de créer rapidement des applications web complexes.
+1. Haute performance : FastAPI est conçu pour être extrêmement rapide. Il est basé sur des opérations asynchrones, ce qui lui permet de gérer efficacement de nombreuses requêtes simultanées sans sacrifier les performances.
 
-2. **Convention** sur la configuration : Django suit le principe "convention over configuration", ce qui signifie que de nombreuses décisions de conception sont prises par défaut. Cela permet aux développeurs de se concentrer sur la logique métier plutôt que de passer du temps à configurer l'application.
+2. Typage fort : FastAPI utilise des annotations de type Python pour définir les entrées et les sorties de vos API. Cela garantit une validation statique des données, ce qui réduit les erreurs de codage et facilite la documentation automatique de l'API.
 
-3. **Sécurité** : Django est livré avec de nombreuses fonctionnalités de sécurité intégrées pour protéger contre les attaques courantes, telles que la protection contre les injections SQL, la protection contre les attaques CSRF (Cross-Site Request Forgery) et plus encore.
+3. Automatisation de la documentation : FastAPI génère automatiquement une documentation interactive pour votre API en utilisant les informations des annotations de type. Cela simplifie la création et la maintenance de la documentation de l'API.
 
-#  Besoins fonctionnels
 
-Les acteurs en interaction avec notre système sont :
-* Super-Utilisateur.
-* Utilisateurs.
-Le Super-Utilisateur peut faire les actions suivantes :
-1. Accéder à la base de données.
-2.  Gérer la base de données.
-L’utilisateur peut faire les actions suivantes :
-1.  Remplir les champs requis et puis insérer une image correspondant à une téléradiographie de profile afin d’effectuer des analyses céphalométriques
-2. Consulter et télécharger un document sous format PDF qui contient les analyses
-médicales qui correspond au patient en question.
+# Besoins Fonctionnels 
+- Génération Automatique d'Articles Scientifiques :Permettre aux utilisateurs de spécifier le sujet de recherche pour générer automatiquement l'introduction, la conclusion et l'abstract de l'article en fonction des paramètres spécifiés.
+- Chatbot sur le NLP et la Science des Données :Intégrer un chatbot capable de répondre aux questions des utilisateurs sur le NLP et la science des données.
+- Reformulation:Intégrer un module de reformulation pour aider les utilisateurs à améliorer la clarté et la concision de leur écriture.
+- Recommandation : Mettre en place un système de recommandation de contenu lié pour suggérer des ressources pertinentes aux utilisateurs.
 
-# Besoins non-fonctionnels
+# Besoins Non Fonctionnels
 
-Notre site doit répondre aux critères suivants :
-* Ergonomie :
-1.  Interface simple et compréhensible.
-2.  Le site doit être développée d’une façon compréhensive par tous les utilisateurs,
-présenter les informations d’une façon simple et claire, faire apparaître les choix
-ou les saisis des utilisateurs.
-*  Performance :
-1.  Notre site doit répondre à toutes les exigences des utilisateurs d’une manière
-optimale.
+- Qualité du Contenu Généré :Assurer que le contenu généré est de haute qualité, précis et conforme aux normes scientifiques
+
+- Performance :Assurer une réponse rapide du site web et du chatbot pour une expérience utilisateur fluide.
+- Formation du Modèle de Langage : S'assurer que le modèle de langage utilisé pour la génération est correctement formé sur des données spécifiques au domaine de la science des données et du NLP.
+- Disponibilité :Garantir une disponibilité élevée du service web et du chatbot pour éviter les interruptions de service.
+
+- Interface Utilisateur Conviviale :Concevoir une interface utilisateur conviviale et intuitive pour faciliter la navigation et l'utilisation de la plateforme.
+
+- Scalabilité : Prévoir la possibilité de faire évoluer la plateforme pour gérer un nombre croissant d'utilisateurs et de demandes.
+
 
 
 #### Conception UML
 
 Voici la conception UML de notre application
-*4.1* Diagramme de cas d'utilisation  | *4.2* Diagramme de séquence 
+*4.1* Diagramme de cas d'utilisation  | *4.2* Diagramme de classe 
 :------------:|:---------------:
-![Imgur](https://i.ibb.co/3hRwS79/img12.png)  |  ![Imgur](https://i.ibb.co/jMDCqqL/img13.png) 
+![Imgur]([https://i.ibb.co/3hRwS79/img12.png](https://i.ibb.co/MZmkcy5/img1.png)  |  ![Imgur]([https://i.ibb.co/jMDCqqL/img13.png](https://i.ibb.co/mtSrpvM/UML-Class-Diagram-Example-Car.png)) 
 
 # Mode d’emploi
 Pour démarrer cette partie front-end( à noter il faut démarrer la partie backend en premier , pour consommer les APIS backend avec Axios) , suivez les étapes suivantes :
