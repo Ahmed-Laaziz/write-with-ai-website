@@ -46,7 +46,7 @@ Le choix de FastAPI offre plusieurs avantages pour le développement d'applicati
 Voici la conception UML de notre application
 *4.1* Diagramme de cas d'utilisation  | *4.2* Diagramme de classe 
 :------------:|:---------------:
-![Imgur]([https://i.ibb.co/3hRwS79/img12.png](https://i.ibb.co/MZmkcy5/img1.png)  |  ![Imgur]([https://i.ibb.co/jMDCqqL/img13.png](https://i.ibb.co/mtSrpvM/UML-Class-Diagram-Example-Car.png)) 
+![Imgur](https://i.ibb.co/MZmkcy5/img1.png)  |  ![Imgur](https://i.ibb.co/jMDCqqL/img13.png(https://i.ibb.co/mtSrpvM/UML-Class-DiagramExample-Car.png) 
 
 # Mode d’emploi
 Pour démarrer cette partie front-end( à noter il faut démarrer la partie backend en premier , pour consommer les APIS backend avec Axios) , suivez les étapes suivantes :
