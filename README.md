@@ -87,6 +87,23 @@ Acceuil  |  Champs à remplir pour récupérer des analyses céphalométriques
 :-------------:|:----------------:
 ![Imgur](https://i.ibb.co/BGWSCwT/Screenshot-2023-09-02-124730.png)  |  ![Imgur](https://i.ibb.co/YdpdR6V/Screenshot-2023-09-02-125825.png)  
 
+
+
+
+ Les analyses céphalométriques qui correspond au patient |   Les interprétations des valeurs des angles céphalométriques récupérées
+:-------------:|:----------------:
+![Imgur](https://i.ibb.co/Ctvj2q7/Screenshot-2023-09-02-130141.png)  |  ![Imgur](https://i.ibb.co/PWHW9Yz/Screenshot-2023-09-02-130256.png)  
+ Les analyses céphalométriques qui correspond au patient |   Les interprétations des valeurs des angles céphalométriques récupérées
+:-------------:|:----------------:
+![Imgur](https://i.ibb.co/WpSLZJg/Screenshot-2023-09-02-140450.png)  |  ![Imgur](https://i.ibb.co/mSdmRDy/Screenshot-2023-09-02-140610.png)  
+ Les analyses céphalométriques qui correspond au patient |   Les interprétations des valeurs des angles céphalométriques récupérées
+:-------------:|:----------------:
+![Imgur](https://i.ibb.co/1ZRPJcF/Screenshot-2023-09-02-140756.png)  |  ![Imgur](https://i.ibb.co/3c1yt8d/Screenshot-2023-09-02-141603.png)  
+
+ Les analyses céphalométriques qui correspond au patient |   Les interprétations des valeurs des angles céphalométriques récupérées
+:-------------:|:----------------:
+![Imgur](https://i.ibb.co/d5htPzf/Screenshot-2023-09-02-141646.png)  |  ![Imgur](https://i.ibb.co/pbGMhbr/Screenshot-2023-09-02-141706.png)  
+
 - [Ahmed Laaziz] (mailto:laazizahmed72@gmail.com) - [LinkedIn]([your-linkedin-profile-link](https://www.linkedin.com/in/ahmed-laaziz-4b2168218/))
 
 ---
