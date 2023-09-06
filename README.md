@@ -56,7 +56,7 @@ Pour démarrer cette partie front-end( à noter il faut démarrer la partie back
 4.	Naviguez vou vers : http://localhost:8080/
 
 # Aperçu
-Acceuil  |  Sign-Up
+Home  |  Sign-Up
 :-------------:|:----------------:
 ![Imgur](https://i.ibb.co/LdQBFsw/Screenshot-2023-09-02-122544.png)  |  ![Imgur](https://i.ibb.co/VJYsz5d/Screenshot-2023-09-02-122712.png)
 
