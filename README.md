@@ -1,10 +1,10 @@
 <div align="center">
-  <h1>🌟 Medical 🌟 - We care about your health </h1>
+  <h1>🌟 Smart Docs 🌟 - Your Research Paper Generation Tool </h1>
 </div>
 
 
 <div align="center">
-  <img src="https://media.licdn.com/dms/image/D5612AQGwC94DVIlNTg/article-cover_image-shrink_600_2000/0/1672179883165?e=2147483647&v=beta&t=FU51Ux0Z1DOip-gjtlIGopC9aS41ADPbSAdHtdgVuJI" alt="Screenshot-2023-09-05-205414" border="0">
+  <img src="https://play-lh.googleusercontent.com/0SGLm0XREiam1GkErO-oXEi5LoyUExVIgfn30alJ82y0UwewSkSO6uxFq0oPmavV0Oo=w526-h296-rw" alt="Screenshot-2023-09-05-205414" border="0">
 </div>
 
 # Contexte général du projet
